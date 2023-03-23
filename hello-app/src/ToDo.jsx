@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 function ToDo() {
-  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || [    {"title":"Idée","isChecked":false},    {"title":"Marché","isChecked":false},    {"title":"Wireframe","isChecked":false},    {"title":"Design","isChecked":false},    {"title":"Landingpage","isChecked":false},    {"title":"Développement","isChecked":false},    {"title":"Publish","isChecked":false},    {"title":"Pub","isChecked":false},    {"title":"Feedback","isChecked":false},  ]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || [
+  {"title":"Idée","isChecked":false},    
+  {"title":"Marché","isChecked":false},    
+  {"title":"Wireframe","isChecked":false},    
+  {"title":"Design","isChecked":false},    
+  {"title":"Landingpage","isChecked":false},    
+  {"title":"Développement","isChecked":false},    
+  {"title":"Publish","isChecked":false},    
+  {"title":"Pub","isChecked":false},    
+  {"title":"Feedback","isChecked":false},  ]);
 
   const [newTask, setNewTask] = useState("");
   const [search, setSearch] = useState("");
@@ -66,27 +75,29 @@ function ToDo() {
                 onChange={() => handleToggle(index)}
               />
               <span className={task.isChecked ? 'completed' : ''}>{task.title}</span>
-              <button onClick={() => handleDelete(index)}>Delete</button>
-              <button onClick={() => handleMoveUp(index)}>Move Up</button>
-              <button onClick={() => handleMoveDown(index)}>Move Down</button>
+              <button onClick={() => handleDelete(index)}>&#10006;</button>
+              <button onClick={() => handleMoveUp(index)}>&#9650;</button>
+              <button onClick={() => handleMoveDown(index)}>&#9660;</button>
             </label>
           </li>
         ))}
       </ul>
       <footer>
-        <form onSubmit={(e) => { e.preventDefault(); handleAdd(); }}>
-          <input
-            type="text"
-            placeholder="Ajouter une tâche"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-          />
-          <button type="submit">Add</button>
-        </form>
-        <form onSubmit={(e) => { e.preventDefault(); }}>
+      <form onSubmit={(e) => { e.preventDefault(); }}>
           <input type="text"placeholder="Rechercher une tâche"
           value={search}
           onChange={(e) => setSearch(e.target.value)}/>
+        </form>
+        <br></br>
+        <form onSubmit={(e) => { e.preventDefault(); handleAdd(); }}>
+          <h3>Ajouter une tâche :</h3>
+          <input
+            type="text"
+            placeholder="Nouvelle tâche"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+          />
+          <button type="submit">&#x2713;</button>
         </form>
       </footer>
     </div>
