@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 function ToDo() {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || [
-    {"title":"1. Idée","isChecked":false},
-    {"title":"2. Marché","isChecked":false},
-    {"title":"3. Wireframe","isChecked":false},
-    {"title":"4. Design","isChecked":false},
-    {"title":"5. Landingpage","isChecked":false},
-    {"title":"6. Développement","isChecked":false},
-    {"title":"7. Publish","isChecked":false},
-    {"title":"8. Pub","isChecked":false},
-    {"title":"9. Feedback","isChecked":false},
+    {"title":"Idée","isChecked":false},
+    {"title":"Marché","isChecked":false},
+    {"title":"Wireframe","isChecked":false},
+    {"title":"Design","isChecked":false},
+    {"title":"Landingpage","isChecked":false},
+    {"title":"Développement","isChecked":false},
+    {"title":"Publish","isChecked":false},
+    {"title":"Pub","isChecked":false},
+    {"title":"Feedback","isChecked":false},
   ]);
 
   const [newTask, setNewTask] = useState("");
@@ -59,7 +59,7 @@ function ToDo() {
       <form onSubmit={(e) => { e.preventDefault(); handleAdd(); }}>
         <input
           type="text"
-          placeholder="New task"
+          placeholder="Ajouter une tâche"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
