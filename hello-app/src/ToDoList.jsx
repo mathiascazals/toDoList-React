@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function ToDo() {
+function ToDoList() {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || [
   {"title":"Idée","isChecked":false},    
   {"title":"Marché","isChecked":false},    
@@ -45,17 +45,15 @@ function ToDo() {
   };
 
   const handleMoveUp = (index) => {
-    if (index === 0) return; // Do nothing if already at top
+    if (index === 0) return; 
     const newTasks = [...tasks];
-    // Swap the current task with the one above it
     [newTasks[index - 1], newTasks[index]] = [newTasks[index], newTasks[index - 1]];
     setTasks(newTasks);
   };
 
   const handleMoveDown = (index) => {
-    if (index === tasks.length - 1) return; // Do nothing if already at bottom
+    if (index === tasks.length - 1) return; 
     const newTasks = [...tasks];
-    // Swap the current task with the one below it
     [newTasks[index], newTasks[index + 1]] = [newTasks[index + 1], newTasks[index]];
     setTasks(newTasks);
   };
@@ -104,4 +102,4 @@ function ToDo() {
   );
 }
 
-export default ToDo;
+export default ToDoList;
